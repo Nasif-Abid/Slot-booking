@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Reserve a convocation time slot with your unique booking code."
+    />
+    <title>Convocation Slot Booking</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Convocation home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z"></path>
+            <path d="M7 10.7v4.1c2.8 2.2 7.2 2.2 10 0v-4.1M21 9v5"></path>
+          </svg>
+        </span>
+        <span>
+          <strong>Convocation</strong>
+          <small>Slot Booking</small>
+        </span>
+      </a>
+      <div class="secure-label">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+        </svg>
+        Secure booking
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">YOUR GRADUATION DAY</p>
+        <h1>Reserve your <span>convocation slot</span></h1>
+        <p class="hero-copy">Choose a convenient time and complete your registration.</p>
+      </section>
+
+      <section class="booking-card" aria-label="Slot booking">
+        <form id="bookingForm">
+          <div class="code-panel">
+            <label for="bookingCode">Booking code</label>
+            <div class="code-field">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16"></path>
+              </svg>
+              <input
+                id="bookingCode"
+                name="bookingCode"
+                type="text"
+                autocomplete="off"
+                placeholder="Enter your unique code"
+                required
+              />
+              <button type="button" class="clear-code" aria-label="Clear booking code">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m7 7 10 10M17 7 7 17"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="field-help" id="codeHelp">Your code can be found in your invitation email.</p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="schedule">
+            <div class="section-heading">
+              <div>
+                <p class="step">01</p>
+                <h2>Select a date</h2>
+              </div>
+              <p class="availability"><span></span> Available</p>
+            </div>
+
+            <div class="date-picker" role="radiogroup" aria-label="Select a date">
+              <button type="button" class="date-option" role="radio" aria-checked="false" data-date="Saturday, 18 July">
+                <span class="day">Sat</span>
+                <strong>18</strong>
+                <span class="month">Jul</span>
+              </button>
+              <button type="button" class="date-option active" role="radio" aria-checked="true" data-date="Sunday, 19 July">
+                <span class="day">Sun</span>
+                <strong>19</strong>
+                <span class="month">Jul</span>
+              </button>
+              <button type="button" class="date-option" role="radio" aria-checked="false" data-date="Monday, 20 July">
+                <span class="day">Mon</span>
+                <strong>20</strong>
+                <span class="month">Jul</span>
+              </button>
+            </div>
+
+            <div class="section-heading slot-heading">
+              <div>
+                <p class="step">02</p>
+                <h2>Choose a time</h2>
+              </div>
+            </div>
+
+            <div class="time-grid" role="radiogroup" aria-label="Select a time">
+              <button type="button" class="time-option" role="radio" aria-checked="false" data-time="08:30 AM">
+                <strong>08:30 AM</strong>
+                <span>18 seats left</span>
+              </button>
+              <button type="button" class="time-option" role="radio" aria-checked="false" data-time="09:30 AM">
+                <strong>09:30 AM</strong>
+                <span>12 seats left</span>
+              </button>
+              <button type="button" class="time-option active" role="radio" aria-checked="true" data-time="10:30 AM">
+                <strong>10:30 AM</strong>
+                <span>8 seats left</span>
+              </button>
+              <button type="button" class="time-option" role="radio" aria-checked="false" data-time="11:30 AM">
+                <strong>11:30 AM</strong>
+                <span>21 seats left</span>
+              </button>
+              <button type="button" class="time-option" role="radio" aria-checked="false" data-time="02:00 PM">
+                <strong>02:00 PM</strong>
+                <span>16 seats left</span>
+              </button>
+              <button type="button" class="time-option unavailable" role="radio" aria-checked="false" aria-disabled="true" data-time="03:00 PM">
+                <strong>03:00 PM</strong>
+                <span>Fully booked</span>
+              </button>
+            </div>
+
+            <div class="summary">
+              <div>
+                <span>Your selection</span>
+                <strong id="selectionSummary">Sunday, 19 July · 10:30 AM</strong>
+              </div>
+              <button type="submit" class="confirm-button">
+                Confirm booking
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span class="toast-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 7"></path></svg>
+      </span>
+      <div>
+        <strong>Slot reserved</strong>
+        <p id="toastMessage"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
